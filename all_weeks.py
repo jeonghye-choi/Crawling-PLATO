@@ -117,3 +117,26 @@ while lect_num>0:
                 print("zoom: ", i.text, "\n")
         except:
             pass
+
+        #### Quiz(클릭해야함) - quiz
+        try:
+            quiz = content.find_all('li', class_="quiz")
+            quiz_num= len(quiz)
+            print(quiz_num)
+            count= 0
+
+            while count<quiz_num:
+                quizs=driver.find_elements_by_xpath(f'//li[@id="section-{str(weeks)}"]/div[@class="content"]/ul/li[contains(@class, "quiz")]//a')
+                quizs[count].click()
+                time.sleep(1)
+
+                html= driver.page_source
+                soup= BeautifulSoup(html, 'lxml')
+                tbody= soup.find('tbody')
+                print(tbody)
+                driver.back()
+                time.sleep(2)
+
+                count+= 1
+        except:
+            pass
