@@ -109,3 +109,11 @@ while lect_num>0:
                 print("url: ",link.get('href'), "\n")
         except:
             pass
+
+        #### 온라인 실시간 강의(클릭해야함, 클릭하고 내부에 zoom이동? or 그냥 현재페이지에서 정보만 가져옴?(!!)) - zoom O
+        try:
+            zoom= content.find_all('li', class_="zoom")
+            for i in zoom:
+                print("zoom: ", i.text, "\n")
+        except:
+            pass
