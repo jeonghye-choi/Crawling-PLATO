@@ -26,3 +26,24 @@ inputElement.send_keys(pwd) # 커서 위치한 곳에 값을 넣음
 inputElement.send_keys(Keys.RETURN) # Enter 키를 누름
 
 time.sleep(2)
+
+
+## 강의클릭하기
+
+lect_num = 8
+while lect_num >0 :
+
+    lect_list = driver.find_elements_by_xpath("//li[@class='course-label-r']/div/a[@class='course-link']")[8-lect_num]  # 강의리스트 찾기
+
+    lect_list.send_keys(Keys.ENTER) # 강의 클릭
+                                    # 다른 방법(강제) - 비추
+                                    # driver.execute_script("arguments[0].click();", i)
+    time.sleep(2)
+
+    # 내용가져오기
+
+
+    # 이전 페이지로
+    lect_num -= 1
+    driver.back()  # 이전 페이지로 이동
+    time.sleep(2)
