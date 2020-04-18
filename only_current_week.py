@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 usr = 'ID'
 pwd = 'PASSWORD'
 
-
 ## 부산대학교 홈페이지 열기
 
 path = "https://plato.pusan.ac.kr/"
@@ -50,6 +49,61 @@ while lect_num >0 :
 
     content = soup.find_all('div', class_="content")[1]
     print("content.text : " + content.text+ "\n")
+
+
+    # 교수님의 말
+    try:
+
+        label = content.find_all('li', class_="label")
+        for i in label:
+            print("label:  ",i.text, "\n")
+    except:
+        pass
+
+    # 참고자료  (url 로 되어있으니까 연결 해주기 - url주소 가져오기)
+    try:
+        url = content.find_all('li', class_="url")
+        for i in url:
+            print("url:  ", i.text, "\n")
+    except:
+        pass
+
+    # 파일
+    try:
+        ubfile = content.find_all('li', class_="ubfile")
+        for i in ubfile:
+            print("ubfile:  ",i.text, "\n")
+    except:
+        pass
+
+
+    # 강의 ( 날짜 따로 분류하기 )
+    try:
+        vod = content.find_all('li', class_="vod")
+        for i in vod:
+            print("vod:  ", i.text, "\n")
+    except:
+        pass
+
+    # 과제 ( 제한 날짜 클릭해서 찾아서 가져와야함 -> v2)
+    try:
+        assign = content.find_all('li', class_="assign") 
+        for i in assign:
+            print("assign: ", i.text,"\n")
+    except:
+        pass
+        
+    
+    # 퀴즈 ( 제한 날짜 클릭해서 찾아서 가져와야함 )
+    try:
+        quiz = content.find_all('li', class_="quiz")
+        for i in quiz:
+            print("quiz:  ", i.text, "\n")
+    except:
+        pass
+
+    print("-"*20)
+
 
 
     # 이전 페이지로
