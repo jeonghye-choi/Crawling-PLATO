@@ -35,13 +35,6 @@ while lect_num>0:
     lect_list.send_keys(Keys.ENTER)
     time.sleep(2)
 
-    # 내용찾기
-
-    ### 이전페이지로
-    lect_num -= 1
-    driver.back()
-
-
     #### 주차별 찾기!
     for weeks in range(1,15):
         ### 클릭한 후!
@@ -68,6 +61,7 @@ while lect_num>0:
                 print("vod: ", i.text, "\n")
         except:
             pass
+
         #### 참고 공지사항 - label O
         try:
             label= content.find_all('li', class_="label")
@@ -140,3 +134,13 @@ while lect_num>0:
                 count+= 1
         except:
             pass
+
+        #### 전체 보기(혹시모를 누락된 정보가 있을 수 있으므로!)
+        try:
+            print(str(weeks) + "주차 : " + content.text + "\n")
+        except:
+            pass # 아직 오지않은 주차에 대해서는 내용이 없음
+
+    ### 이전페이지로
+    lect_num -= 1
+    driver.back()
