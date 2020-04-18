@@ -100,3 +100,12 @@ while lect_num>0:
 
         except:
             pass
+
+        #### ppt등 강의자료(클릭하면 url로 이동 가능) - url O
+        try:
+            url= content.find_all('li', class_="url")
+            for i in url:
+                link= i.find('a')
+                print("url: ",link.get('href'), "\n")
+        except:
+            pass
