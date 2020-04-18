@@ -75,3 +75,28 @@ while lect_num>0:
                 print("label: ", i.text, "\n")
         except:
             pass
+
+        #### 과제물(클릭해야함) - assign
+        try:
+            assign = content.find_all('li', class_="assign") 
+            assign_num= len(assign)
+            print(assign_num)
+            count= 0
+            print(type(weeks))
+
+            while count<assign_num:
+                assigns= driver.find_elements_by_xpath(f'//li[@id="section-{str(weeks)}"]/div[@class="content"]/ul/li[contains(@class, "assign")]//a')
+                assigns[count].click()
+                time.sleep(1)
+
+                html= driver.page_source
+                soup= BeautifulSoup(html, 'lxml')
+                tbody= soup.find('tbody')
+                print(tbody)
+                driver.back()
+                time.sleep(2)
+
+                count+= 1
+
+        except:
+            pass
