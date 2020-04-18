@@ -1,11 +1,12 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from bs4 import BeautifulSoup
 
 # 홈페이지 열어서 로그인
 ## user 정보
-usr= '201845729'
-pwd= 'yeriel6409!'
+usr = 'ID'
+pwd = 'PASSWORD'
 
 ## 홈페이지 정보
 path= 'https://plato.pusan.ac.kr/'
@@ -39,3 +40,22 @@ while lect_num>0:
     ### 이전페이지로
     lect_num -= 1
     driver.back()
+    
+
+    #### 주차별 찾기!
+    for weeks in range(1,15):
+        ### 클릭한 후!
+        html= driver.page_source
+        soup= BeautifulSoup(html,'lxml')
+
+        #### 과목이름
+        coursename= soup.find('h2', class_="coursename")
+        print(str(weeks)+ "주차 title : " + coursename.get('title') + "\n") 
+
+        # weeks= str(weeks)
+        print(str(weeks) + "주차\n")
+
+
+        #### 종류구분 (종류에 따라서 처리가 다름)
+        content= soup.find('li', id='section-'+ str(weeks))
+        print("content : " + content.text)
