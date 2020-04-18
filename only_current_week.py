@@ -40,7 +40,15 @@ while lect_num >0 :
                                     # driver.execute_script("arguments[0].click();", i)
     time.sleep(2)
 
-    # 내용가져오기
+
+    # BeautifulSoup 이용해서 해당 페이지 html 파싱  --> source를 html형태로 만드는 것이기에 클릭같은 동적인 제어 X
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'lxml')
+    coursename = soup.find('h2',class_="coursename")
+    print("title : " + coursename.get('title') + "\n")
+
+    content = soup.find_all('div', class_="content")[1]
+    print("content.text : " + content.text+ "\n")
 
 
     # 이전 페이지로
