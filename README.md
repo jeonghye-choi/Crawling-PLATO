@@ -10,10 +10,10 @@ PLATO 사이트는 과목 각각의 시스템에 집중했기에 한눈에 모�
 로 했다.
 
 ### 👉 목차
-- <a href="./only_current_week">only_current_week</a>
+- [only_current_week](#only_current_week.py)
 
     오늘 날짜에 해당하는 주차의 정보만 가져옴
-- <a href="./all_weeks">all_weeks</a>
+- [all_weeks](#all_weeks)
 
     모든 주차의 정보들을 가져옴
 - plato_lecturelist(예정)
