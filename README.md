@@ -16,6 +16,6 @@ PLATO 사이트는 과목 각각의 시스템에 집중했기에 한눈에 모�
 - [all_weeks](#all_weeks)
 
     모든 주차의 정보들을 가져옴
-- plato_lecturelist(예정)
+- [plato_lecturelist(진행중)](#PLATO_LECTURELIST)
 
     위의 코드를 참고해서 장고를 이용한 프로그램을 만들어 볼거다
